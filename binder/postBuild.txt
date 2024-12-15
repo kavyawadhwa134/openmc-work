@@ -1,6 +1,18 @@
 #!/bin/bash
 set -e
 
+# Install gdown if not already installed
+pip install gdown
+
+# Download the folder from Google Drive using the file ID
+gdown https://drive.google.com/drive/folders/1qwWj4hTLzbZ98u4LeHLPFZiP7LfuKdqh?usp=sharing
+
+# Set the environment variable for cross-sections
+export OPENMC_CROSS_SECTIONS='mcnp_endfb70/cross_sections.xml'
+
+# Print the path to verify the export
+echo "OPENMC_CROSS_SECTIONS is set to: $OPENMC_CROSS_SECTIONS"
+
 # Install TensorRT
 pip install tensorrt --extra-index-url https://pypi.nvidia.com
 
