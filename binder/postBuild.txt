@@ -1,15 +1,15 @@
 #!/bin/bash
 set -e
 
+# Install TensorRT
 pip install tensorrt --extra-index-url https://pypi.nvidia.com
 
-# pip appears to leave behind 4GB of stuff.. lets remove it.
+# Clean up pip cache
 pip cache purge
 
-#clean up some big files - maybe we don't need them
+# Remove large files that may not be needed
 rm `find /srv/conda/envs -size +50M -name \*.a`
 
-#!/bin/bash
 # Download and install Julia
 wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.3-linux-x86_64.tar.gz
 tar -xvzf julia-1.9.3-linux-x86_64.tar.gz
@@ -18,3 +18,7 @@ sudo ln -s /opt/julia-1.9.3/bin/julia /usr/local/bin/julia
 
 # Install IJulia package
 julia -e 'using Pkg; Pkg.add("IJulia");'
+
+# Install OpenMC from conda-forge
+echo "Installing OpenMC from conda-forge"
+conda install -c conda-forge openmc -y
