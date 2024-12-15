@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#C++ introduction lectures
+git clone https://github.com/hsf-india-may2024/cpp_intro
+
+exec "$@"
