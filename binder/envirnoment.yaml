@@ -3,6 +3,7 @@ channels:
   - defaults
   - conda-forge  # Channel for OpenMC
 dependencies:
+  - gdown
   - python=3.10
   - numpy
   - scipy
